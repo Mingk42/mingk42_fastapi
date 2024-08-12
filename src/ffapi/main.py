@@ -5,7 +5,7 @@ import pandas as pd
 
 app = FastAPI()
 
-#df = pd.read_parquet("/home/root2/code/ffapi/data/")
+df = pd.read_parquet("/home/root2/code/ffapi/data/")
 
 @app.get("/")
 def read_root():
@@ -24,7 +24,7 @@ def sample_data():
 
 @app.get("/movie/{movie_cd}")
 def movie_meta(movie_cd: int):
-    df = pd.read_parquet("/home/root2/code/ffapi/data/")
+    # df = pd.read_parquet("/home/root2/code/ffapi/data/")
     
     df_select = df.loc[df["movieCd"]==str(movie_cd)].to_dict()
 
